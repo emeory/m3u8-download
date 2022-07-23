@@ -19,7 +19,10 @@ public class HttpClientUtil {
   public static Response sendGetRequest(String url, int responseCode) {
     Response response;
     try {
-      Request request = new Request.Builder().url(url).build();
+      Request request = new Request.Builder().url(url)
+          .header("Origin","https://vip.tulingxueyuan.cn")
+          .header("Referer", "https://vip.tulingxueyuan.cn/")
+          .build();
       response = getOkHttpClient().newCall(request).execute();
       if (response.isSuccessful()) {
         if (response.code() != responseCode){

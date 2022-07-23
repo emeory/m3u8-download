@@ -32,6 +32,12 @@ public class M3u8VideoDownload {
     startDownload(selectVideo);
   }
 
+  public void startDownload(String m3u8File){
+    UrlParseInit urlParseInit = new UrlParseInit(m3u8File);
+    VideoMeta videoMeta = urlParseInit.parseVideoMeta("https://encrypt-k-vod.xet.tech/9764a7a5vodtransgzp1252524126/ec1da2b35285890813167086089/drm/", "123:2342");
+    startDownload(videoMeta);
+  }
+
   public void startDownload(VideoMeta videoMeta){
     downloader.downloadVideo(videoMeta);
   }

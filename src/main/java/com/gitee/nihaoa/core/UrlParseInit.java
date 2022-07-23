@@ -6,6 +6,8 @@ import com.gitee.nihaoa.exception.M3u8Exception;
 import com.gitee.nihaoa.utils.CommonUtil;
 import com.gitee.nihaoa.utils.HttpClientUtil;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.LinkedList;
 import java.util.List;
 import okhttp3.Response;
@@ -13,7 +15,7 @@ import okhttp3.Response;
 /**
  * 初始化下载链接
  */
-class UrlParseInit {
+public class UrlParseInit {
   private String name;
   private String path;
   private String url;
@@ -28,6 +30,14 @@ class UrlParseInit {
     this.url = m3u8Url;
     path = videoPath;
     name = videoName;
+  }
+
+  public UrlParseInit(String m3u8File){
+    try {
+      bufferedReader = new BufferedReader(new FileReader(m3u8File));
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
   }
 
 
@@ -76,11 +86,9 @@ class UrlParseInit {
   }
 
   public VideoMeta parseVideoMeta(String videoUrl, String property){
-    VideoMeta videoMeta = new VideoMeta(path, name, videoUrl);
+    VideoMeta videoMeta = new VideoMeta("/home/emeory/mdata/java/m3u8/", "123.video", videoUrl);
     videoMeta.setProperty(property);
     List<VideoTs> videoTsList = new LinkedList<>();
-    Response response = HttpClientUtil.sendGetRequest(videoUrl, 200);
-    BufferedReader bufferedReader = new BufferedReader(response.body().charStream());
     try {
       String line;
       int fileId = 0;

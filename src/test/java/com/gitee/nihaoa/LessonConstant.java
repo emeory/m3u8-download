@@ -17,7 +17,8 @@ public enum LessonConstant {
   Lesson12("https://1258712167.vod2.myqcloud.com/fb8e6c92vodtranscq1258712167/812f02665285890806870610800/drm/voddrm.token.dWluPTk4MDM4MjE1OTt2b2RfdHlwZT0wO2NpZD0zMjM2MzU7dGVybV9pZD0xMDI5MTc0MTE7cGxza2V5PTAwMDQwMDAwYmMyYmQwZDQ3MTU2ZTQ3MGNkMDIwMjkxZGJiMWY0NGQyMzMwZTEyMzNhNmI5ZmNmYzE3NWUyZDZiMzI5ZGRhMTVjMDY2NDFkNDg4Y2FkMjE7cHNrZXk9.v.f56150.m3u8?t=5f704043&sign=27b50aba56fe4eb05a28f1a26a8e666f&exper=0&us=3697727330591691523",
     "12.C语言与字节码解析器.ts"),
   Lesson13("https://1258712167.vod2.myqcloud.com/fb8e6c92vodtranscq1258712167/c68f833a5285890806942469745/drm/voddrm.token.dWluPTk4MDM4MjE1OTt2b2RfdHlwZT0wO2NpZD0zMjM2MzU7dGVybV9pZD0xMDI5MTc0MTE7cGxza2V5PTAwMDQwMDAwYmMyYmQwZDQ3MTU2ZTQ3MGNkMDIwMjkxZGJiMWY0NGQyMzMwZTEyMzNhNmI5ZmNmYzE3NWUyZDZiMzI5ZGRhMTVjMDY2NDFkNDg4Y2FkMjE7cHNrZXk9.v.f56150.m3u8?exper=0&t=5f70473b&us=8063523494126606456&sign=f104d6262835f1682b4f7d5ee9a28a1a",
-    "13.C++的友元_操作符重载_模板.ts")
+    "13.C++的友元_操作符重载_模板.ts"),
+  Lesson15("https://encrypt-k-vod.xet.tech/9764a7a5vodtransgzp1252524126/ec1da2b35285890813167086089/drm/v.f421220.m3u8?sign=577ed30bc149e65d4a71ab0ee5f68436&t=62d76698&us=ocwVZZUvhA&whref=vip.tulingxueyuan.cn", "123.mp4")
   ;
   private String url;
   private String name;
