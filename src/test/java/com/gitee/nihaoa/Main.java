@@ -1,6 +1,18 @@
 package com.gitee.nihaoa;
 
 import com.gitee.nihaoa.core.M3u8VideoDownload;
+import com.iheartradio.m3u8.Encoding;
+import com.iheartradio.m3u8.Format;
+import com.iheartradio.m3u8.PlaylistParser;
+import com.iheartradio.m3u8.data.MasterPlaylist;
+import com.iheartradio.m3u8.data.MediaData;
+import com.iheartradio.m3u8.data.MediaPlaylist;
+import com.iheartradio.m3u8.data.Playlist;
+import com.iheartradio.m3u8.data.PlaylistData;
+import com.iheartradio.m3u8.data.TrackData;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.List;
 
 public class Main {
 
@@ -9,8 +21,20 @@ public class Main {
     String url2 = "https://1258712167.vod2.myqcloud.com/fb8e6c92vodtranscq1258712167/222b8f105285890793327213458/drm/master_playlist.m3u8?t=5f5c69f3&exper=0&us=8927891122224205245&sign=02414a22c07dfb7082d6c800c491394f";
     String windowsPath = "D:/download/luban/";
     String linuxPath = "/home/nihaoa/download/test/ts/";
-    LessonConstant lesson = LessonConstant.Lesson13;
-    M3u8VideoDownload videoDownload = new M3u8VideoDownload(10);
-    videoDownload.startDownload(lesson.getUrl(), lesson.getName(), windowsPath);
+    //LessonConstant lesson = LessonConstant.Lesson13;
+    //M3u8VideoDownload videoDownload = new M3u8VideoDownload(10);
+    //videoDownload.startDownload(lesson.getUrl(), lesson.getName(), windowsPath);
+    InputStream inputStream = new FileInputStream("/home/emeory/Desktop/123.txt");
+    PlaylistParser playlistParser = new PlaylistParser(inputStream, Format.EXT_M3U, Encoding.UTF_8);
+    System.out.println(playlistParser.isAvailable());
+    Playlist playlist = playlistParser.parse();
+    System.out.println(playlist.getCompatibilityVersion());
+    System.out.println(playlist.hasMasterPlaylist());
+    System.out.println(playlist.hasMediaPlaylist());
+    MediaPlaylist mediaPlaylist = playlist.getMediaPlaylist();
+    System.out.println(mediaPlaylist.getPlaylistType());
+    List<TrackData> tracks = mediaPlaylist.getTracks();
+    for (TrackData track : tracks) {
+    }
   }
 }
